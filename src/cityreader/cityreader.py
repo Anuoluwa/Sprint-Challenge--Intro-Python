@@ -4,13 +4,13 @@ import csv
 
 
 class City():
-    def __init__(self, name, lat, lon):
+    def __init__(self, name, lat: float, lon: float):
         self.name = name
         self.lat = lat
         self.lon = lon
 
     def __str__(self):
-        return f" You are in {str(self.name)}, with {float(self.lat)}, and {float(self.lon)}"
+        return f" You are in {self.name}, with {self.lat}, and {self.lon}"
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -32,10 +32,11 @@ def cityreader(cities=[]):
     # TODO Implement the functionality to read from the 'cities.csv' file
     # For each city record, create a new City instance and add it to the
     # `cities` list
-    with open('./cities.csv', mode='r') as csv_file:
+    with open('./cities.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
-          cities.append(City(row[0], (row[3]), row[4]))
+            print(City(str(row[0]), float(row[3]), float(row[4])))
+            cities.append(City(row[0], (row[3]), row[4]))
         return cities
 
 
