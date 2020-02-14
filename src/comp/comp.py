@@ -8,6 +8,7 @@ class Human:
     def __repr__(self):
         return f"<Human: {self.name}, {self.age}>"
 
+
 humans = [
     Human("Alice", 29),
     Human("Bob", 32),
@@ -61,11 +62,12 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [f"({human.name.upper()}, {int(human.age + 5)}))" for human in humans]
+g = [Human(human.name.upper(), int(human.age + 5)) for human in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
+
 h = [math.sqrt(human.age) for human in humans]
 print(h)
